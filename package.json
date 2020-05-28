@@ -1,0 +1,19 @@
+{
+  "name": "headless_browser",
+  "version": "1.0.0",
+  "description": "A headless browser for node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Milo S. Rue",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^3.0.3",
+    "request": "^2.88.2",
+    "robotjs": "^0.6.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "websocket": "^1.0.31"
+  }
+}
