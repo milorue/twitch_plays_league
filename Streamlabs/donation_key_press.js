@@ -1,6 +1,6 @@
 var robot = require('robotjs');
 var request = require('request')
-const secrets = require('./secrets')
+const secrets = require('../secrets')
 var http = require('http');
 
 robot.setMouseDelay(2);
