@@ -33,6 +33,34 @@ function onMessageHandler (target, context, msg, self) {
     const num = rollDice();
     client.say(target, `You rolled a ${num}`);
     console.log(`* Executed ${commandName} command`);
+  }
+  else if(commandName == "!pressQ"){
+    client.say(target, `You wasted ${opts.channels[0]}'s Q Ability!`);
+    console.log(`* Executed ${commandName} command`);
+  }
+  else if(commandName == "!pressW"){
+    client.say(target, `You wasted ${opts.channels[0]}'s W Ability!`);
+    console.log(`* Executed ${commandName} command`);
+  } 
+  else if(commandName == "!pressE"){
+    client.say(target, `You wasted ${opts.channels[0]}'s E Ability!`);
+    console.log(`* Executed ${commandName} command`);
+  } 
+  else if(commandName == "!pressR"){
+    client.say(target, `You wasted ${opts.channels[0]}'s R Ability!`);
+    console.log(`* Executed ${commandName} command`);
+  } 
+  else if(commandName == "!pressD"){
+    client.say(target, `You wasted ${opts.channels[0]}'s D Ability!`);
+    console.log(`* Executed ${commandName} command`);
+  }
+  else if(commandName == "!pressF"){
+    client.say(target, `You wasted ${opts.channels[0]}'s F Ability!`);
+    console.log(`* Executed ${commandName} command`);
+  }
+  else if(commandName == "!help"){
+    client.say(target, `!pressQ, !pressW, !pressE, !pressR, !pressD, !pressF`);
+    console.log(`* Executed ${commandName} command`);
   } else {
     console.log(`* Unknown command ${commandName}`);
   }
