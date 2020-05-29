@@ -192,6 +192,11 @@ class TwitchPlays{
                 }
                 
             })
+
+            conn.on('close', () =>{
+                client.connect('wss://sockets.streamlabs.com/socket.io/?token=' + secrets.socket_token + '&EIO=3&transport=websocket')
+            })
+                
         })
         client.connect('wss://sockets.streamlabs.com/socket.io/?token=' + secrets.socket_token + '&EIO=3&transport=websocket')
     }
