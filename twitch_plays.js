@@ -6,8 +6,8 @@ const secrets = require('./secrets')
 
 class TwitchPlays{
     constructor(){
-        this.gameAccounts = [] // league username
-        this.lolKeys = ['q','w','e','r','d','f'] // can add more through custom keys
+        this.gameAccounts = [], // league username
+        this.lolKeys = ['q','w','e','r','d','f'], // can add more through custom keys
         this.customKeyset = null
     }
 
@@ -78,7 +78,7 @@ class TwitchPlays{
         }else{ // use default
             
             if(game === 'lol'){
-                var keyIndex = this.getRandInt((this.lolKeys - 1))
+                var keyIndex = this.getRandInt(this.lolKeys.length - 1)
                 return this.lolKeys[keyIndex]
             }
             else{
@@ -208,6 +208,7 @@ class TwitchPlays{
             console.log('Player is active')
             console.log(this.getLatestDonation())
             var keyPress = this.randomKeypress('lol') // use default keys for now
+            console.log(keyPress)
             robot.keyTap(keyPress)
         }else{
             console.log('Player is not active')
@@ -216,11 +217,8 @@ class TwitchPlays{
 
         // console.logs are placeholder for now
     }
-
-
-    
-
-    
+   
 }
+
 
 module.exports = TwitchPlays
