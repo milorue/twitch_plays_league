@@ -1,6 +1,7 @@
 const twitchPlay = require('./twitch_plays')
+require('dotenv').config()
 
-const username = 'Drunkenskarl'
+const username = 'DrunkenSkarl'
 const game = 'lol'
 
 var  testPlay = new twitchPlay();

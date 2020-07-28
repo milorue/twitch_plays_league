@@ -1,6 +1,6 @@
 var robot = require('robotjs');
 var request = require('sync-request')
-const secrets = require('./secrets')
+require('dotenv').config()
 
 
 
@@ -29,7 +29,7 @@ class TwitchPlays{
         if(game === 'lol'){
             var response = request(
                 'GET',
-                'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+username+ '?api_key=' + secrets.riotAPIKey)
+                'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/'+username+ '?api_key=' + process.env.RIOT_API_KEY)
                 
                 var data = JSON.parse(response.getBody()) 
                 var account = {
@@ -108,7 +108,7 @@ class TwitchPlays{
         identifier: email,
         amount: amount,
         currency: 'USD',
-        access_token: secrets.access_token
+        access_token: process.env.STREAMLABS_ACCESS_TOKEN
     }}, (req, res, body) =>{
     })
     }
@@ -118,7 +118,7 @@ class TwitchPlays{
     getDonations(){
         var response = request(
             'GET',
-            'https://streamlabs.com/api/v1.0/donations?access_token=' + secrets.access_token,
+            'https://streamlabs.com/api/v1.0/donations?access_token=' + process.env.STREAMLABS_ACCESS_TOKEN,
         )
     
         var data = JSON.parse(response.getBody())
@@ -133,7 +133,7 @@ class TwitchPlays{
     getLatestDonation(){
         var response = request(
             'GET',
-            'https://streamlabs.com/api/v1.0/donations?access_token=' + secrets.access_token
+            'https://streamlabs.com/api/v1.0/donations?access_token=' + process.env.STREAMLABS_ACCESS_TOKEN
         )
 
         var data = JSON.parse(response.getBody())
@@ -151,7 +151,7 @@ class TwitchPlays{
         if(game === 'lol'){
             var response = request(
                 'GET',
-                'https://na1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/' + summonerId + '?api_key=' + secrets.riotAPIKey
+                'https://na1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/' + summonerId + '?api_key=' + process.env.RIOT_API_KEY
             )
 
             if(response.statusCode === 404){ // for inactive player
@@ -194,11 +194,11 @@ class TwitchPlays{
             })
 
             conn.on('close', () =>{
-                client.connect('wss://sockets.streamlabs.com/socket.io/?token=' + secrets.socket_token + '&EIO=3&transport=websocket')
+                client.connect('wss://sockets.streamlabs.com/socket.io/?token=' + process.env.SOCKET_TOKEN + '&EIO=3&transport=websocket')
             })
                 
         })
-        client.connect('wss://sockets.streamlabs.com/socket.io/?token=' + secrets.socket_token + '&EIO=3&transport=websocket')
+        client.connect('wss://sockets.streamlabs.com/socket.io/?token=' + process.env.SOCKET_TOKEN + '&EIO=3&transport=websocket')
     }
 
     // requires summoner id which is in your  game account obj
