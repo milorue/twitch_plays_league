@@ -1,6 +1,9 @@
 # Twitch Chat Plays League
 Accept Twitch Donations in return for ability presses and many more twitch to league interactions.
 
+#### Recommended Build
+Go to the v.1.0.1 branch for the most recommended dev build the current master branch was built somewhat naively and has a number of bugs and the new one has the advantage of being a web server that routes toggle on/off different games, etc.
+
 ### Installation
 ---
 
